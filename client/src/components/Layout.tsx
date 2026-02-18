@@ -24,31 +24,25 @@ export function Navbar() {
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center gap-12">
-          <Link href="/">
-            <a className="flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg shadow-primary/20">
-                <Zap className="w-6 h-6 text-primary-foreground fill-current" />
-              </div>
-              <span className="text-2xl font-black tracking-tighter text-white">TechZone</span>
-            </a>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg shadow-primary/20">
+              <Zap className="w-6 h-6 text-primary-foreground fill-current" />
+            </div>
+            <span className="text-2xl font-black tracking-tighter text-white">TechZone</span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-8 text-xs font-black uppercase tracking-widest text-muted-foreground">
-            <Link href="/category/smartphones">
-              <a className={cn("hover:text-primary transition-all hover:tracking-[0.2em]", location.startsWith("/category") && "text-primary")}>
-                Smartphones
-              </a>
+            <Link href="/category/smartphones" className={cn("hover:text-primary transition-all hover:tracking-[0.2em]", location.startsWith("/category") && "text-primary")}>
+              Smartphones
             </Link>
-            <Link href="/category/laptops">
-              <a className="hover:text-primary transition-all hover:tracking-[0.2em]">Laptops</a>
+            <Link href="/category/laptops" className="hover:text-primary transition-all hover:tracking-[0.2em]">
+              Laptops
             </Link>
-            <Link href="/compare">
-              <a className={cn("hover:text-primary transition-all hover:tracking-[0.2em]", location === "/compare" && "text-primary")}>
-                Compare
-              </a>
+            <Link href="/compare" className={cn("hover:text-primary transition-all hover:tracking-[0.2em]", location === "/compare" && "text-primary")}>
+              Compare
             </Link>
-            <Link href="/support">
-              <a className="hover:text-primary transition-all hover:tracking-[0.2em]">Support</a>
+            <Link href="/support" className="hover:text-primary transition-all hover:tracking-[0.2em]">
+              Support
             </Link>
           </div>
         </div>
@@ -63,19 +57,15 @@ export function Navbar() {
             />
           </div>
 
-          <Link href="/cart">
-            <a className="relative p-3 bg-white/5 hover:bg-primary hover:text-white rounded-2xl transition-all group">
-              <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-[10px] flex items-center justify-center rounded-full text-white font-black border-2 border-background group-hover:bg-white group-hover:text-primary transition-colors">
-                2
-              </span>
-            </a>
+          <Link href="/cart" className="relative p-3 bg-white/5 hover:bg-primary hover:text-white rounded-2xl transition-all group">
+            <ShoppingCart className="w-5 h-5" />
+            <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-[10px] flex items-center justify-center rounded-full text-white font-black border-2 border-background group-hover:bg-white group-hover:text-primary transition-colors">
+              2
+            </span>
           </Link>
 
-          <Link href="/orders">
-            <a className="p-3 bg-white/5 hover:bg-white/10 rounded-2xl transition-all">
-              <User className="w-5 h-5" />
-            </a>
+          <Link href="/orders" className="p-3 bg-white/5 hover:bg-white/10 rounded-2xl transition-all">
+            <User className="w-5 h-5" />
           </Link>
 
           <button 
@@ -97,10 +87,8 @@ export function Navbar() {
           >
             <div className="p-6 space-y-4">
               {['Smartphones', 'Laptops', 'Compare', 'Support'].map(item => (
-                <Link key={item} href={`/${item.toLowerCase()}`}>
-                  <a className="flex justify-between items-center py-4 text-lg font-black tracking-tight border-b border-white/5 hover:text-primary">
-                    {item} <ArrowRight className="w-5 h-5" />
-                  </a>
+                <Link key={item} href={`/${item.toLowerCase()}`} className="flex justify-between items-center py-4 text-lg font-black tracking-tight border-b border-white/5 hover:text-primary">
+                  {item} <ArrowRight className="w-5 h-5" />
                 </Link>
               ))}
             </div>

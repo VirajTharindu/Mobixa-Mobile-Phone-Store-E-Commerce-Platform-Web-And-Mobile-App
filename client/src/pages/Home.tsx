@@ -46,10 +46,8 @@ export default function Home() {
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4">
-              <Link href="/product/1">
-                <a className="inline-flex items-center bg-primary hover:bg-blue-600 text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105 shadow-[0_0_20px_rgba(59,130,246,0.4)]">
-                  Buy Now - $999 <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
+              <Link href="/product/1" className="inline-flex items-center bg-primary hover:bg-blue-600 text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105 shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+                Buy Now - $999 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
               
               <button className="inline-flex items-center bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-full font-bold border border-white/10 backdrop-blur-sm transition-all">
@@ -106,10 +104,8 @@ export default function Home() {
               <h2 className="text-4xl font-black mb-3 tracking-tight">Featured Collections</h2>
               <p className="text-muted-foreground text-lg">Curated selections for every digital nomad and creative pro.</p>
             </div>
-            <Link href="/category/all">
-              <a className="group text-primary hover:text-blue-400 text-sm font-bold flex items-center transition-all">
-                View All Collections <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+            <Link href="/category/all" className="group text-primary hover:text-blue-400 text-sm font-bold flex items-center transition-all">
+              View All Collections <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           
@@ -122,20 +118,18 @@ export default function Home() {
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Link href={`/category/${cat.id}`}>
-                  <a className="group relative block aspect-[4/5] overflow-hidden rounded-3xl bg-card border border-white/5 hover:border-primary/50 transition-all duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10"></div>
-                    <div className="absolute bottom-0 left-0 p-8 z-20 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                      <h3 className="text-2xl font-black mb-2">{cat.name}</h3>
-                      <p className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-500">{cat.description}</p>
-                      <div className="mt-4 w-10 h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
-                    </div>
-                    <img 
-                      src={cat.image} 
-                      alt={cat.name} 
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-70"
-                    />
-                  </a>
+                <Link href={`/category/${cat.id}`} className="group relative block aspect-[4/5] overflow-hidden rounded-3xl bg-card border border-white/5 hover:border-primary/50 transition-all duration-500">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10"></div>
+                  <div className="absolute bottom-0 left-0 p-8 z-20 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                    <h3 className="text-2xl font-black mb-2">{cat.name}</h3>
+                    <p className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-500">{cat.description}</p>
+                    <div className="mt-4 w-10 h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                  </div>
+                  <img 
+                    src={cat.image} 
+                    alt={cat.name} 
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-70"
+                  />
                 </Link>
               </motion.div>
             ))}
@@ -167,42 +161,40 @@ export default function Home() {
           >
             {products.slice(0, 4).map((product) => (
               <motion.div key={product.id} variants={item}>
-                <Link href={`/product/${product.id}`}>
-                  <a className="group block bg-card/40 backdrop-blur-sm border border-white/5 rounded-3xl p-5 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
-                    <div className="aspect-[4/5] bg-[#0d0d12] rounded-2xl mb-6 overflow-hidden relative">
-                      <div className="absolute top-4 right-4 z-10">
-                        <span className={cn(
-                          "px-3 py-1 text-[10px] font-black uppercase rounded-full backdrop-blur-md border",
-                          product.stock === 'In Stock' 
-                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" 
-                            : "bg-orange-500/10 text-orange-400 border-orange-500/20"
-                        )}>
-                          {product.stock}
-                        </span>
-                      </div>
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
+                <Link href={`/product/${product.id}`} className="group block bg-card/40 backdrop-blur-sm border border-white/5 rounded-3xl p-5 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
+                  <div className="aspect-[4/5] bg-[#0d0d12] rounded-2xl mb-6 overflow-hidden relative">
+                    <div className="absolute top-4 right-4 z-10">
+                      <span className={cn(
+                        "px-3 py-1 text-[10px] font-black uppercase rounded-full backdrop-blur-md border",
+                        product.stock === 'In Stock' 
+                          ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" 
+                          : "bg-orange-500/10 text-orange-400 border-orange-500/20"
+                      )}>
+                        {product.stock}
+                      </span>
                     </div>
-                    
-                    <div className="space-y-1 mb-4">
-                      <div className="flex items-center gap-1">
-                        <Star className="w-3 h-3 text-amber-400 fill-current" />
-                        <span className="text-[10px] font-bold">{product.rating}</span>
-                      </div>
-                      <h3 className="font-bold text-xl group-hover:text-primary transition-colors">{product.name}</h3>
-                      <p className="text-xs text-muted-foreground font-medium uppercase tracking-widest">{product.brand}</p>
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  </div>
+                  
+                  <div className="space-y-1 mb-4">
+                    <div className="flex items-center gap-1">
+                      <Star className="w-3 h-3 text-amber-400 fill-current" />
+                      <span className="text-[10px] font-bold">{product.rating}</span>
                     </div>
-                    
-                    <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                      <span className="font-black text-2xl tracking-tighter">${product.price.toLocaleString()}</span>
-                      <button className="p-3 bg-primary/10 text-primary rounded-2xl group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                        <ShoppingCart className="w-5 h-5" />
-                      </button>
-                    </div>
-                  </a>
+                    <h3 className="font-bold text-xl group-hover:text-primary transition-colors">{product.name}</h3>
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-widest">{product.brand}</p>
+                  </div>
+                  
+                  <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                    <span className="font-black text-2xl tracking-tighter">${product.price.toLocaleString()}</span>
+                    <button className="p-3 bg-primary/10 text-primary rounded-2xl group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <ShoppingCart className="w-5 h-5" />
+                    </button>
+                  </div>
                 </Link>
               </motion.div>
             ))}

@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { products } from "@/lib/data";
-import { useRoute, useLocation } from "wouter";
+import { useRoute, useLocation, Link } from "wouter";
 import { Star, Truck, ShieldCheck, ArrowLeft, ArrowRight, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -33,23 +33,23 @@ export default function ProductDetail() {
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-          <span className="cursor-pointer hover:text-primary" onClick={() => setLocation("/")}>Store</span>
+      <div className="container mx-auto px-4 py-8 pt-32">
+        <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-muted-foreground mb-12">
+          <Link href="/" className="hover:text-primary transition-colors">Store</Link>
           <ArrowRight className="w-3 h-3" />
-          <span className="cursor-pointer hover:text-primary" onClick={() => setLocation("/category/smartphones")}>{product.category}</span>
+          <Link href="/category/smartphones" className="hover:text-primary transition-colors">{product.category}</Link>
           <ArrowRight className="w-3 h-3" />
-          <span className="text-foreground font-medium">{product.name}</span>
+          <span className="text-foreground">{product.name}</span>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
+        <div className="grid md:grid-cols-2 gap-16 mb-32">
           {/* Gallery */}
-          <div className="space-y-4">
-            <div className="aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/5 relative group">
+          <div className="space-y-6">
+            <div className="aspect-square rounded-[2rem] overflow-hidden bg-white/5 border border-white/5 relative group">
               <img 
                 src={images[activeImage]} 
                 alt={product.name} 
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="grid grid-cols-4 gap-4">
@@ -58,26 +58,26 @@ export default function ProductDetail() {
                   key={idx}
                   onClick={() => setActiveImage(idx)}
                   className={cn(
-                    "aspect-square rounded-lg overflow-hidden border-2 transition-all",
-                    activeImage === idx ? "border-primary" : "border-transparent hover:border-white/20"
+                    "aspect-square rounded-2xl overflow-hidden border-2 transition-all p-1",
+                    activeImage === idx ? "border-primary bg-primary/10" : "border-transparent bg-white/5 hover:border-white/20"
                   )}
                 >
-                  <img src={img} alt="" className="w-full h-full object-cover" />
+                  <img src={img} alt="" className="w-full h-full object-cover rounded-xl" />
                 </button>
               ))}
             </div>
           </div>
 
           {/* Product Info */}
-          <div className="space-y-8">
+          <div className="space-y-10">
             <div>
-              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full mb-4">
+              <div className="inline-flex items-center px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest rounded-full mb-6 border border-primary/20">
                 NEW ARRIVAL
               </div>
-              <h1 className="text-4xl font-bold mb-2">{product.name}</h1>
-              <p className="text-lg text-muted-foreground">{product.description}</p>
+              <h1 className="text-5xl md:text-6xl font-black tracking-tighter mb-4 leading-none">{product.name}</h1>
+              <p className="text-xl text-muted-foreground leading-relaxed font-medium">{product.description}</p>
               
-              <div className="flex items-center gap-4 mt-4">
+              <div className="flex items-center gap-4 mt-6">
                 <div className="flex text-amber-400">
                   <Star className="w-4 h-4 fill-current" />
                   <Star className="w-4 h-4 fill-current" />
@@ -85,179 +85,93 @@ export default function ProductDetail() {
                   <Star className="w-4 h-4 fill-current" />
                   <Star className="w-4 h-4 fill-current text-amber-400/30" />
                 </div>
-                <span className="text-sm text-muted-foreground">({product.rating} • {product.reviews} reviews)</span>
+                <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">({product.rating} • {product.reviews} reviews)</span>
               </div>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-sm font-medium">Choose Color</h3>
-              <div className="flex gap-3">
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">Choose Color</h3>
+              <div className="flex gap-4">
                 {product.colors.map((color, idx) => (
                   <button
                     key={idx}
                     onClick={() => setSelectedColor(idx)}
                     className={cn(
-                      "w-10 h-10 rounded-full border-2 ring-2 ring-offset-2 ring-offset-background transition-all",
-                      selectedColor === idx ? "border-transparent ring-primary" : "border-white/10 ring-transparent hover:ring-white/20"
+                      "w-12 h-12 rounded-full border-4 transition-all relative",
+                      selectedColor === idx ? "border-primary scale-110 shadow-lg shadow-primary/20" : "border-white/5 hover:border-white/20"
                     )}
                     style={{ backgroundColor: color }}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="text-sm font-medium">Storage Capacity</h3>
-              <div className="grid grid-cols-3 gap-3">
-                {storageOptions.map((opt, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setSelectedStorage(idx)}
-                    className={cn(
-                      "px-4 py-3 rounded-lg border text-center transition-all",
-                      selectedStorage === idx 
-                        ? "border-primary bg-primary/5 text-primary" 
-                        : "border-white/10 hover:border-white/30"
-                    )}
                   >
-                    <div className="font-bold text-sm">{opt.size}</div>
-                    <div className="text-xs text-muted-foreground">${opt.price}</div>
+                    {selectedColor === idx && <div className="absolute inset-0 rounded-full border border-black/20" />}
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="flex gap-4 pt-4 border-t border-white/5">
+            <div className="space-y-4">
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">Storage Capacity</h3>
+              <div className="grid grid-cols-3 gap-4">
+                {storageOptions.map((opt, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedStorage(idx)}
+                    className={cn(
+                      "px-6 py-4 rounded-2xl border-2 text-left transition-all",
+                      selectedStorage === idx 
+                        ? "border-primary bg-primary/5 text-primary shadow-lg shadow-primary/10" 
+                        : "border-white/5 bg-white/5 hover:border-white/20"
+                    )}
+                  >
+                    <div className="font-black text-lg tracking-tighter leading-none mb-1">{opt.size}</div>
+                    <div className="text-xs font-bold opacity-60">${opt.price}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex gap-4 pt-6">
               <button 
                 onClick={() => setLocation("/cart")}
-                className="flex-1 bg-primary hover:bg-blue-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02]"
+                className="flex-[2] bg-primary hover:bg-blue-600 text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-[1.02] shadow-xl shadow-primary/20"
               >
                 <ShoppingBag className="w-5 h-5" /> Add to Cart
               </button>
-              <button className="flex-1 bg-white/5 hover:bg-white/10 text-white py-4 rounded-xl font-bold border border-white/10 transition-colors">
+              <button className="flex-1 bg-white text-black hover:bg-white/90 py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all">
                 Buy Now
               </button>
             </div>
 
-            <div className="flex gap-6 text-xs text-muted-foreground">
+            <div className="flex gap-10 pt-4 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
               <div className="flex items-center gap-2">
-                <Truck className="w-4 h-4 text-primary" /> Free Shipping
+                <Truck className="w-4 h-4 text-primary" /> Free Express Shipping
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-primary" /> 2 Year Warranty
+                <ShieldCheck className="w-4 h-4 text-primary" /> 2 Year Global Warranty
               </div>
             </div>
           </div>
         </div>
 
         {/* Technical Deep Dive */}
-        <div className="mb-20">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-8 h-1 bg-primary rounded-full"></div>
-            <h2 className="text-2xl font-bold">Technical Deep Dive</h2>
+        <div className="mb-32">
+          <div className="flex items-center gap-6 mb-12">
+            <div className="w-12 h-1 bg-primary rounded-full"></div>
+            <h2 className="text-4xl font-black tracking-tight">Technical Spec Sheet</h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {Object.entries(product.specs).map(([key, value], idx) => (
-              <div key={idx} className="bg-card border border-white/5 p-6 rounded-2xl hover:border-primary/30 transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
-                  {idx === 0 ? <div className="w-5 h-5 border-2 border-current rounded-full" /> : 
-                   idx === 1 ? <div className="w-5 h-5 border-2 border-current" /> :
-                   <div className="w-5 h-5 bg-current rounded-sm" />}
+              <div key={idx} className="bg-card/40 backdrop-blur-sm border border-white/5 p-8 rounded-3xl hover:border-primary/30 transition-all group">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                  {idx === 0 ? <Zap className="w-6 h-6 fill-current" /> : 
+                   idx === 1 ? <div className="w-6 h-6 border-2 border-current rounded-lg" /> :
+                   <div className="w-6 h-6 bg-current rounded-md" />}
                 </div>
-                <h3 className="font-bold text-lg mb-1">{value}</h3>
-                <p className="text-sm text-muted-foreground">{key}</p>
-                <p className="text-xs text-muted-foreground mt-2 pt-2 border-t border-white/5">
-                  Industry leading performance for {key.toLowerCase()}.
-                </p>
+                <h3 className="font-black text-2xl tracking-tighter mb-2">{value}</h3>
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-4">{key}</p>
+                <div className="h-px w-8 bg-white/10 group-hover:w-full transition-all duration-500"></div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Customer Verdict */}
-        <div className="grid lg:grid-cols-3 gap-12">
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Customer Verdict</h2>
-            <div className="bg-card border border-white/5 p-8 rounded-2xl">
-              <div className="text-5xl font-bold mb-2">4.8<span className="text-xl text-muted-foreground font-normal">/5.0</span></div>
-              
-              <div className="flex text-amber-400 mb-4">
-                <Star className="w-5 h-5 fill-current" />
-                <Star className="w-5 h-5 fill-current" />
-                <Star className="w-5 h-5 fill-current" />
-                <Star className="w-5 h-5 fill-current" />
-                <Star className="w-5 h-5 fill-current" />
-              </div>
-              
-              <p className="text-sm text-muted-foreground mb-8">
-                98% of users would recommend this flagship model to a friend.
-              </p>
-
-              <div className="space-y-3">
-                {[5, 4, 3].map((star, i) => (
-                  <div key={star} className="flex items-center gap-3 text-xs">
-                    <span className="w-2">{star}</span>
-                    <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-primary rounded-full" 
-                        style={{ width: i === 0 ? '85%' : i === 1 ? '10%' : '5%' }}
-                      />
-                    </div>
-                    <span className="w-6 text-right text-muted-foreground">{i === 0 ? '85%' : i === 1 ? '10%' : '5%'}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-2 space-y-6">
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="font-bold">Recent Reviews</h3>
-              <button className="text-primary text-sm hover:underline">Write a Review</button>
-            </div>
-
-            <div className="space-y-4">
-              <div className="p-6 rounded-2xl bg-card border border-white/5">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-xs font-bold text-white">MS</div>
-                  <div>
-                    <div className="font-bold text-sm">Marcus Sterling</div>
-                    <div className="text-[10px] text-primary">VERIFIED BUYER</div>
-                  </div>
-                </div>
-                <div className="flex text-amber-400 mb-2">
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  The titanium build is significantly lighter than previous generations. The camera's dynamic range is incredible, especially in low-light environments. Worth every penny.
-                </p>
-              </div>
-
-              <div className="p-6 rounded-2xl bg-card border border-white/5">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-xs font-bold text-white">AL</div>
-                  <div>
-                    <div className="font-bold text-sm">Anna Lawson</div>
-                    <div className="text-[10px] text-primary">VERIFIED BUYER</div>
-                  </div>
-                </div>
-                <div className="flex text-amber-400 mb-2">
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Blown away by the screen clarity. I upgraded from the X12 and this difference in speed and screen brightness is night and day.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

@@ -20,8 +20,8 @@ export default function Cart() {
     <Layout>
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-2xl font-bold mb-8">Shopping Cart</h1>
-        <div className="flex items-center gap-2 text-xs text-muted-foreground mb-8">
-          <Link href="/">STORE</Link> › <span className="text-primary">CART & CHECKOUT</span>
+        <div className="flex items-center gap-2 text-xs text-muted-foreground mb-8 uppercase tracking-widest font-black">
+          <Link href="/" className="hover:text-primary transition-colors">STORE</Link> › <span className="text-primary">CART & CHECKOUT</span>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
