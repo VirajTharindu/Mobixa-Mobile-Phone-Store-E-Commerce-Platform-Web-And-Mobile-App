@@ -207,5 +207,5 @@ Feel free to reach out if you're interested in the technical architecture or col
 ---
 
 <p align="center">
-  <em>Built with ❤️ for the future of Tech E-Commerce 🚀 ✨</em>
+  <em>Built with ❤️ for the future of Tech E-Commerce! 🚀 ✨</em>
 </p>
