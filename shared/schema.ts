@@ -1,3 +1,7 @@
+/**
+ * NOTE: This SQL-based schema is temporary for the initial prototyping phase.
+ * In a future update, the system will move to MongoDB as the primary database.
+ */
 import { sql } from "drizzle-orm";
 import { pgTable, text, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";

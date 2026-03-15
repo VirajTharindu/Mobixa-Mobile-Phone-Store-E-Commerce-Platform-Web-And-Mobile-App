@@ -28,7 +28,7 @@ export function Navbar() {
             <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg shadow-primary/20">
               <Zap className="w-6 h-6 text-primary-foreground fill-current" />
             </div>
-            <span className="text-2xl font-black tracking-tighter text-white">TechZone</span>
+            <span className="text-2xl font-black tracking-tighter text-white">Mobixa</span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-8 text-xs font-black uppercase tracking-widest text-muted-foreground">
@@ -109,7 +109,7 @@ export function Footer() {
               <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center">
                 <Zap className="w-5 h-5 text-primary-foreground fill-current" />
               </div>
-              <span className="text-xl font-black tracking-tighter">TechZone</span>
+              <span className="text-xl font-black tracking-tighter">Mobixa</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Crafting the future of retail through high-performance hardware and exceptional user experiences.
@@ -153,7 +153,7 @@ export function Footer() {
         </div>
         
         <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-widest text-muted-foreground">
-          <p>© 2024 TechZone Global Operations.</p>
+          <p>© 2024 Mobixa Global Operations.</p>
           <div className="flex gap-8 mt-6 md:mt-0">
             <a href="#" className="hover:text-primary transition-colors">Twitter</a>
             <a href="#" className="hover:text-primary transition-colors">Instagram</a>

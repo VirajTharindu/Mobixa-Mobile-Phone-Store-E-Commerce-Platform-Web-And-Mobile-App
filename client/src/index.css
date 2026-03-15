@@ -3,7 +3,7 @@
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   
-  /* TechZone Color Palette */
+  /* Mobixa Color Palette */
   --color-background: hsl(222 47% 11%); /* Deep Navy #0f172a - base bg */
   --color-foreground: hsl(210 40% 98%); /* White text */
   
@@ -33,6 +33,48 @@
   --color-ring: hsl(217 91% 60%);
   
   --radius: 0.5rem;
+
+  /* Premium Gold Effect */
+  --gold-glow: 0 0 20px rgba(212, 175, 55, 0.4);
+  --glass-bg: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer utilities {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: 280px;
+    gap: 1.5rem;
+  }
+
+  .pulse-gold {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+    animation: pulse-gold 2s infinite;
+  }
+
+  @keyframes pulse-gold {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+    }
+  }
 }
 
 @layer base {

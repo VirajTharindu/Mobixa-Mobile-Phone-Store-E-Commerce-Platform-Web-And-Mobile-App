@@ -1,0 +1,33 @@
+name: mobile_app
+description: A new Flutter project for the Mobile Phone Store.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  flutter_riverpod: ^3.2.1
+  google_fonts: ^8.0.1
+  flutter_animate: ^4.5.0
+  glassmorphism: ^3.0.0
+  o3d: ^2.1.0
+  dio: ^5.4.0
+  cached_network_image: ^3.3.0
+  lucide_icons_flutter: ^3.1.9
+  lucide_icons: ^0.257.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+dependency_overrides:
+  o3d: ^2.0.0 # Or whatever version is the closest match
+
+flutter:
+  uses-material-design: true
+  assets:
+  - assets/images/

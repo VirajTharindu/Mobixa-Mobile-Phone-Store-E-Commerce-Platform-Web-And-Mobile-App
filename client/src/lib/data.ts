@@ -19,7 +19,7 @@ export const products: Product[] = [
   {
     id: "1",
     name: "Titanium Series X",
-    brand: "TechZone",
+    brand: "Mobixa",
     price: 999,
     rating: 4.8,
     reviews: 1240,
@@ -42,7 +42,7 @@ export const products: Product[] = [
     price: 1299,
     rating: 4.9,
     reviews: 850,
-    image: "https://images.unsplash.com/photo-1610945265078-386f3b58d86f?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1707151022130-1c5c00b5220c?q=80&w=800&auto=format&fit=crop",
     category: "Smartphones",
     specs: {
       "Main Camera": "200MP Wide",
@@ -80,7 +80,7 @@ export const products: Product[] = [
     price: 999,
     rating: 4.7,
     reviews: 540,
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff23?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1635870638245-25935aa2a1d7?q=80&w=800&auto=format&fit=crop",
     category: "Smartphones",
     specs: {
       "Main Camera": "50MP",
@@ -114,7 +114,7 @@ export const products: Product[] = [
   {
     id: "6",
     name: "Sonic Buds X",
-    brand: "TechZone",
+    brand: "Mobixa",
     price: 249,
     rating: 4.5,
     reviews: 120,
@@ -154,7 +154,7 @@ export const categories = [
 
 export const orders = [
   {
-    id: "#TX-98231",
+    id: "#MX-98231",
     product: "MacBook Pro M3 Max - 14-inch",
     price: 3499.00,
     date: "Oct 24, 2023",
@@ -163,7 +163,7 @@ export const orders = [
     image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca4?auto=format&fit=crop&q=80&w=200"
   },
   {
-    id: "#TX-97442",
+    id: "#MX-97442",
     product: "AirPods Max - Space Gray",
     price: 549.00,
     date: "Sep 12, 2023",
@@ -172,7 +172,7 @@ export const orders = [
     image: "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?auto=format&fit=crop&q=80&w=200"
   },
   {
-    id: "#TX-98501",
+    id: "#MX-98501",
     product: "Wi-Fi 7 Pro Mesh System (3-Pack)",
     price: 899.00,
     date: "Oct 25, 2023",

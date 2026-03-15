@@ -11,6 +11,7 @@ import Category from "@/pages/Category";
 import Compare from "@/pages/Compare";
 import Cart from "@/pages/Cart";
 import Orders from "@/pages/Orders";
+import Profile from "@/pages/Profile";
 
 function Router() {
   return (
@@ -21,17 +22,35 @@ function Router() {
       <Route path="/compare" component={Compare} />
       <Route path="/cart" component={Cart} />
       <Route path="/orders" component={Orders} />
+      <Route path="/profile" component={Profile} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
+import MagneticCursor from "@/components/MagneticCursor";
+import SmoothScroll from "@/components/SmoothScroll";
+import AnimatedSVGLoader from "@/components/AnimatedSVGLoader";
+import { useState, useEffect } from "react";
+
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <AnimatedSVGLoader />;
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Router />
+        <MagneticCursor />
+        <SmoothScroll>
+          <Router />
+        </SmoothScroll>
       </TooltipProvider>
     </QueryClientProvider>
   );
