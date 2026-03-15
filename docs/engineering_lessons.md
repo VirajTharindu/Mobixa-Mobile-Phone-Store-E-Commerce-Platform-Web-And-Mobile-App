@@ -25,15 +25,15 @@ Developing a full-stack system involving Node.js, React, and Flutter simultaneou
 - **Permission Management**: The critical importance of `AndroidManifest.xml` configuration (Internet permissions, Cleartext traffic) for fetching remote assets.
 - **Build Optimization**: Leveraging Vite's fast HMR for the web while managing complex Gradle builds for the mobile app.
 
-## 📈 5. Scalability Decisions (The SQL to NoSQL Pivot)
-The decision to roadmap a migration from PostgreSQL (Drizzle) to MongoDB was driven by:
-- **Schema Flexibility**: A product catalog with varying specifications (different for phones, buds, accessories) is better suited for a document-based model.
-- **Horizontal Scaling**: MongoDB's sharding capabilities provide a clear path for handling massive increases in traffic and catalog size.
+## 📈 5. Scalability Decisions (The Database Strategy)
+The decision to use the current database as a temporary DB for the system was driven by rapid prototyping needs:
+- **Future Integration**: In the future, PostgreSQL will be integrated to the system as the primary DB to provide robust, relational data integrity and complex querying capabilities.
+- **Temporary Solution**: The current DB serves as a flexible, temporary data store while the core relational schema is finalized for PostgreSQL.
 
 ---
 
 ## 🏗️ 6. Folder Architecture & Code Patterns
 The system follows a strict modular structure to ensure maintainability:
-- **Repository Pattern (Backend)**: By abstracting the database layer into `storage.ts`, we've made the system "DB-agnostic." This allows for seamless migration from PostgreSQL to MongoDB without touching the API route logic.
+- **Repository Pattern (Backend)**: By abstracting the database layer into `storage.ts`, we've made the system "DB-agnostic." This allows for seamless migration to PostgreSQL in the future, while currently using the current DB as a temporary database.
 - **Provider State Management (Mobile)**: Using centralized providers allows us to decouple UI state from the view layer, ensuring the 3D model engine remains performant and responsive.
 - **Atomic-Lite Design (Web)**: Structuring the React app into `components` (atoms) and `pages` (organisms) kept the logic footprint small, enabling the high-density bento-grid to render with zero layout shift.

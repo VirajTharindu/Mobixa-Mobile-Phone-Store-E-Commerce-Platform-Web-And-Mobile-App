@@ -33,6 +33,6 @@ We replaced conventional product images with real-time 3D models in the hero sec
 
 ## 🏗️ 6. Layered Monolith & Structural Patterns
 We chose architectural patterns that prioritize developer velocity and system modularity:
-- **Repository Pattern**: Chosen for the backend to ensure the business logic is never coupled to a specific database vendor.
+- **Repository Pattern**: Chosen for the backend to ensure the business logic is never coupled to a specific database vendor. This architecture allows us to currently use the current DB as a temporary database, with plans to integrate PostgreSQL to the system as the primary DB in the future.
 - **Component-Driven Development**: By building the UI as a set of atomic components, we ensured that visual changes (like glassmorphism) could be propagated across the entire app by editing a single file.
 - **Separation of Concerns**: Each folder has a singular responsibility (e.g., `screens` for layout, `providers` for data management), matching the mental model of how users interact with different app layers.

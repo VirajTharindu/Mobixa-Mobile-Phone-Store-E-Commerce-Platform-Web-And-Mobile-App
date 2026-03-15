@@ -3,7 +3,7 @@
 A premium Flutter-based mobile application for the Mobixa E-Commerce Platform.
 
 ## Future Database Roadmap
-**Note**: While the current system uses a temporary backend setup, we plan to integrate **MongoDB** as the primary database in the future to support the full MERN stack integration.
+**Note**: While the current system uses a temporary backend setup, we plan to integrate **PostgreSQL** as the primary database in the future to support robust relational data integrity across the platform.
 
 ## Getting Started
 

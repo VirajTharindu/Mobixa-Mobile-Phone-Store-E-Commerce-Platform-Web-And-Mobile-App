@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
   <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node" />
-  <img src="https://img.shields.io/badge/MERN-Stack-111111?style=for-the-badge" alt="MERN Stack"/>
+  <img src="https://img.shields.io/badge/PERN-Stack-111111?style=for-the-badge" alt="PERN Stack"/>
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
   <img src="https://img.shields.io/badge/Platform-Web%20%26%20Mobile-004D40?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Platform" />
@@ -95,13 +95,13 @@ The Flutter mobile app delivers a seamless, premium experience on the go.
 <a name="architecture-overview"></a>
 # 📄 System architecture overview
 
-MOBIXA is implemented using a **Full-Stack MERN & Flutter Architecture**, following a **Layered Monolith** pattern for the backend and **Component-Driven (Modular) Design** for the frontends.
+MOBIXA is implemented using a **Full-Stack PERN & Flutter Architecture**, following a **Layered Monolith** pattern for the backend and **Component-Driven (Modular) Design** for the frontends.
 
 ### 🏛️ System Patterns
 - **Backend (Repository Pattern)**: Decouples the data access logic from the API routes using a `storage.ts` interface, allowing for easy transitions between different database systems.
 - **Web (Atomic-Lite [Modular] Architecture)**: Segregates UI into reusable `components` and specific `pages`, utilizing custom `hooks` for reactive state management.
 - **Mobile (Provider Pattern)**: Uses a centralized `providers` layer to manage state and business logic across various `screens` and `components`.
-- **Shared Schema**: Uses a `shared/` directory to maintain 1:1 type safety between the server and client using Drizzle/PostgreSQL.
+- **Shared Schema**: Uses a `shared/` directory to maintain 1:1 type safety between the server and client. (Note: Currently using the current DB as a temporary database; in the future, PostgreSQL will be integrated to the system as the primary DB).
 
 ---
 
@@ -112,7 +112,7 @@ MOBIXA is implemented using a **Full-Stack MERN & Flutter Architecture**, follow
 2. **Dynamic Bento-Grid**: Mastered flexible constraints to prevent UI overflow across devices.
 3. **Unified Data Sync**: Implemented consistent JSON serialization between React and Flutter.
 4. **Environment Hardening**: Configured complex Android permissions & hardware acceleration.
-5. **NoSQL Roadmapping**: Strategic pivot from Drizzle/SQL to MongoDB for flexible cataloging.
+5. **Database Strategy**: Currently using the current DB as a temporary database for the system. In the future, PostgreSQL will be integrated to the system as the primary DB for robust data management.
 6. **Architecture Patterns**: Leveraged Repository and Provider patterns for system modularity.
 
 ---
@@ -137,7 +137,7 @@ Key upcoming features planned for MOBIXA:
 - **DONE** 3D Hero Integration for Web — Fully interactive real-time 3D product previews.
 - **IN PROGRESS** UI/UX Implementation — Enhancing the user interface and user experience.
 - **IN PROGRESS** 3D Hero Integration for Mobile — Fully interactive real-time 3D product previews.
-- **IN PROGRESS** MongoDB Transition — Migrating from SQL to a flexible NoSQL document model.
+- **PLANNED** PostgreSQL Integration — In the future, PostgreSQL will be integrated to the system as the primary DB. Currently, the system uses the current DB as a temporary database.
 - **NOT STARTED** User Authentication — Biometric and OAuth login systems.
 - **NOT STARTED** Fully Functional Backend API — Implement all backend API endpoints.
 
@@ -168,7 +168,7 @@ docker-compose up --build
 
 ### ⚙️ Database Setup
 1. Create a `.env` file in the `server` directory.
-2. Add your MongoDB URI/Postgres connection string.
+2. Add your current DB URI connection string. (Note: PostgreSQL will be integrated in the future).
 3. Run migrations: `npm run db:push`.
 
 ---
